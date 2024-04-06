@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="../css/SignUp.css" rel="stylesheet">
+    <link href="../css/style.css" rel="stylesheet">
+    <link rel = "icon" href ="icon.png" type = "image/x-icon"> 
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
+    <script src="../js/script.js"></script>
+    <script src="../js/app.js"></script>
+
+    <style>
+        h1{
+            font-family: "Trirong", serif;
+        }
+        p{
+            font-family: 'Caveat', cursive;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+
+        .social-icons {
+            display: flex;
+        }
+
+        .fa {
+            padding: 14px;
+            font-size: 20px;
+            width: 52px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            border-radius: 50%;
+            display:inline-block;
+        }
+
+        .fa:hover {
+            opacity: 0.7;
+        }
+
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+
+        .fa-google {
+            background: #dd4b39;
+            color: white;
+        }
+
+        .fa-linkedin {
+            background: #007bb5;
+            color: white;
+        }
+
+        .fa-youtube {
+            background: #bb0000;
+            color: white;
+        }
+
+        .fa-instagram {
+            background: #125688;
+            color: white;
+        }
+
+        .fa-snapchat-ghost {
+            background: #fffc00;
+            color: white;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        }
+
+        .carousel-container {
+            width: 1000px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .carousel {
+            display: flex;
+            animation: scroll 25s linear infinite; /* Auto-scrolling animation */
+        }
+
+        .carousel img {
+            width: 200px; /* Adjust the logo size as needed */
+            height: 200px;
+            margin: 0 30px; /* Space between logos */
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%); /* Move one logo's width to the left */
+            }
+        }
+
+    </style>
+    <title>Sign Up/Sign In</title>
+</head>
+<body>
+  <div class="nav">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid" style="background-color: black;">
+                <div class="navbar-header" style="margin-left:30vh;">
+                    <a class="navbar-brand" href="index.html">GradGateway</a>
+                    <img src="../images/icon.png" style="width:40px;height:auto;margin-top:10px;">
+                </div>
+                <ul class="nav navbar-nav">
+                <li class="active"><a href="index.html">Home</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="blog.html">Blogs</a></li>
+                <li><a href="contactUs.html">Contact Us</a></li>
+                <li><a href="aboutUs.html">About Us</a></li>
+                </ul>
+            </div>
+        </nav>
+    </div>
+    <div class="content" style="height:100vh;">
+      <div class="wrapper" style="margin-top:40px;">
+        <div class="title-text">
+          <div class="title login">
+              Sign In
+          </div>
+          <div class="title signup">
+              Sign Up
+          </div>
+        </div>
+        <div class="form-container">
+          <div class="slide-controls">
+              <input type="radio" name="slide" id="login" checked>
+              <input type="radio" name="slide" id="signup">
+              <label for="login" class="slide login">Sign In</label>
+              <label for="signup" class="slide signup">Sign Up</label>
+              <div class="slider-tab"></div>
+          </div>
+          <div class="form-inner">
+
+            <!-- Sign in form -->
+            
+              <form action="/signin" class="login" method="post">
+                <!--<div class="field">
+                    <select id="userType" name="userType" style="font-weight:600;color:whitesmoke;">
+                        <option value="">Choose One</option>
+                        <option value="TPO">TPO</option>
+                        <option value="Student">Student</option>
+                    </select>
+                </div>-->
+                <div class="field">
+                    <input type="text" id="enrollmentID" name="enrollmentID"placeholder="Enrollment ID" required>
+                </div>
+                <div class="field">
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                </div>
+                <div class="pass-link">
+                    <a href="#">Forgot password?</a>
+                </div>
+                <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="Login" onclick="loginForm()">
+                </div>
+                <div class="signup-link">
+                    Not a member? <a href="SignUp.html" style="color:black!important;">Sign Up</a>
+                </div>
+              </form>
+
+              <!-- Sign Up form -->
+
+              <form action="/signup" method="POST" class="signup" id="signupForm">
+                <!--<div class="field">
+                    <select id="userType" name="userType" style="font-weight:600;color:whitesmoke;">
+                        <option value="">Choose One</option>
+                        <option value="TPO">TPO</option>
+                      
+                        <option value="Student">Student</option>
+                    </select>
+                </div>-->
+                <div class="field">
+                  <input type="text" id="enrollmentID" placeholder="Enrollment ID" name="enrollmentID" required>
+                </div>
+                <div class="field">
+                    <input type="text" id="email" placeholder="Email Address" name="email" required>
+                </div>
+                <div class="field">
+                    <input type="password" id="password" placeholder="Password" name="password" required>
+                </div>
+                <div class="field btn">
+                    <div class="btn-layer"></div>
+                    <input type="submit" value="Submit" onclick="submitForm()">
+                </div>
+                
+              </form>
+          </div>
+        </div>
+    </div>
+  </div>
+    <div class="carousel-container" style="background: rgb(255, 249, 249);width:100%;">
+        <h1><center>Our Recruiters</center></h1>
+        <div class="carousel">
+            <img src="companies/adani.png" alt="Logo 1">
+            <img src="companies/byju.png" alt="Logo 2">
+            <img src="companies/crest.png" alt="Logo 3">
+            <img src="companies/evosys.png" alt="Logo 4">
+            <img src="companies/gsfc.png" alt="Logo 5">
+            <img src="companies/jaro.png" alt="Logo 6">
+            <img src="companies/jeavio.png" alt="Logo 7">
+            <img src="companies/meditab.png" alt="Logo 8">
+            <img src="companies/mg.png" alt="Logo 9">
+            <img src="companies/ops.png" alt="Logo 10">
+            <img src="companies/reliance.png" alt="Logo 11">
+            <img src="companies/samsung.png" alt="Logo 12">
+            <img src="companies/tbea.png" alt="Logo 13">
+            <img src="companies/tcs.png" alt="Logo 14">
+            <img src="companies/tm.png" alt="Logo 15">
+            <img src="companies/tr.png" alt="Logo 16">
+            <img src="companies/wipro.png" alt="Logo 17">
+        </div>
+    </div>
+
+    <footer style="width:100%;">
+        <div class="footer-content">
+            <h1><img src="icon.png" style="width:50px;height:auto;margin-right:10px;border-radius:10px;"> GradGateway</h1>
+            <p>Career Connect Hub is a one-stop resource for expert placement guidance, offering step-by-step tutorials and source code for students, recruiters, and placement officers to excel in the world of professional placements.</p>
+            <div class="social-media">
+                <a href="#" class="fa fa-facebook"></a>
+                <a href="#" class="fa fa-twitter"></a>
+                <a href="#" class="fa fa-google"></a>
+                <a href="#" class="fa fa-instagram"></a>
+                <a href="#" class="fa fa-linkedin"></a>
+                <a href="#" class="fa fa-youtube"></a>
+                <a href="#" class="fa fa-snapchat-ghost"></a>
+            </div>
+        </div><br>
+        <div class="footer-bottom">
+            <p>copyright &copy; 2024 <a href="#">GradGateway</a></p>
+            <div class="footer-menu">
+                <ul class="f-menu">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="aboutUs.html">About</a></li>
+                    <li><a href="contactUs.html">Contact</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </footer>
+</body>
+<script>
+
+const loginText = document.querySelector(".title-text .login");
+    const loginForm = document.querySelector("form.login");
+    const loginBtn = document.querySelector("label.login");
+    const signupBtn = document.querySelector("label.signup");
+    const signupLink = document.querySelector("form .signup-link a");
+    signupBtn.onclick = (()=>{
+      loginForm.style.marginLeft = "-50%";
+      loginText.style.marginLeft = "-50%";
+    });
+    loginBtn.onclick = (()=>{
+      loginForm.style.marginLeft = "0%";
+      loginText.style.marginLeft = "0%";
+    });
+    signupLink.onclick = (()=>{
+      signupBtn.click();
+      return false;
+    });
+</script>
+</html>

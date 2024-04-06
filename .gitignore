@@ -1,0 +1,15 @@
+# Node.js
+node_modules/
+
+# Logs
+logs
+*.log
+
+# Dependency directories
+pids
+logs
+results
+
+# Optional: OS-specific files
+.DS_Store
+Thumbs.db

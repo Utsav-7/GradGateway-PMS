@@ -1,0 +1,21 @@
+input,textarea{
+    width:400px;
+    height: 35px;
+    border-radius: 10px;
+    border-color:transparent;
+    padding: 5px;
+}
+.job{
+    margin-left:200px;
+    margin-right:200px;
+    padding-bottom: 10px;
+}
+button{
+    background-color: #44bae8;
+    color:white;
+    font-weight: 600;
+    border-radius: 10px;
+    border-color:transparent;
+    width:70px;
+    height:auto;
+}

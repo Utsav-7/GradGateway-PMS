@@ -1,0 +1,197 @@
+    html{
+            overflow-x:hidden;
+        }
+        h1{
+            font-family: "Trirong", serif;
+        }
+
+        
+        p{
+            font-family: 'Caveat', cursive;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+        }
+
+        .header-blog{
+            background: linear-gradient(rgba(255,255,255,0), rgba(255,255,255,0)), url('../images/resources.png');
+            background-size: cover;
+            width:auto;
+            height:500px;
+            background-color: white;
+            padding:10px;
+            margin-top:50px;
+        }
+        .res-title{
+            width:720px;
+        }
+
+        .title{
+            color:white;
+            font-weight:900;
+            font-size: 3.5rem;
+            margin-top: 180px;
+            margin-left: 150px;
+            maring-bottom: 20px;
+        }
+        .title-text{
+            color:white;
+            font-weight: 600;
+            font-size: 2rem;
+            margin-left: 150px;
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: flex-start;
+            padding: 20px;
+            margin-left: 0px;
+            margin-right: 0px;
+            width: 100%;
+        }
+        .post {
+            width: calc(33.33% - 20px);
+            margin: 10px;
+            border-width: 0;
+            border-radius: 5px;
+            overflow: hidden;
+            /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+            height: 70px;
+            width: 400px;
+            display: flex; 
+            flex-direction: column;
+            justify-content: space-between; 
+            align-self: flex-start;
+            background-color: #1FB46F;
+            border-radius: 30px 0px 30px 0px;
+        }
+
+        .post:hover{
+            background-color: #6ccf9f;
+            box-shadow: 0 4px 10px rgba(31, 180, 111, 0.9);
+        }
+
+        @media screen and (max-width: 768px) {
+            .blog-post {
+                width: calc(50% - 20px); /* Adjust width as needed */
+            }
+        }
+        
+
+        .post img {
+            width: 100%;
+            height: 250px;
+            border-bottom: 1px solid #ccc;
+        }
+
+    
+        .post .content {
+            padding: 0px;
+            height: 70px;
+            margin-top: 25px;
+        }
+
+        .post h4 {
+            margin-top: 0;
+            color:black;
+            text-align: left;
+            font-weight: bold;
+            text-align: center;
+            font-size: 15px;
+        }
+
+        p{
+            color: black;
+            font-weight: 500;
+            overflow: hidden;
+            text-overflow: ellipsis; 
+        }
+
+
+
+
+
+
+
+         .center {
+            text-align: center;
+        }
+
+        .pagination {
+            display: inline-block;
+        }
+
+        .pagination a {
+            color: black!important;
+            float: left;
+            padding: 8px 16px;
+            text-decoration: none;
+            transition: background-color .3s;
+            border: 1px solid #ddd;
+            margin: 0 4px;
+        }
+
+        .pagination a.active {
+            background-color: #1FB46F;
+            color: white;
+            border: 1px solid #1FB46F;
+        }
+
+        .pagination a:hover:not(.active) {background-color: #ddd!important;}
+
+
+        .social-icons {
+            display: flex;
+        }
+
+        .fa {
+            padding: 14px;
+            font-size: 20px;
+            width: 52px;
+            text-align: center;
+            text-decoration: none;
+            margin: 5px 2px;
+            border-radius: 50%;
+            display:inline-block;
+        }
+
+        .fa:hover {
+            opacity: 0.7;
+        }
+
+        .fa-facebook {
+            background: #3B5998;
+            color: white;
+        }
+
+        .fa-twitter {
+            background: #55ACEE;
+            color: white;
+        }
+
+        .fa-google {
+            background: #dd4b39;
+            color: white;
+        }
+
+        .fa-linkedin {
+            background: #007bb5;
+            color: white;
+        }
+
+        .fa-youtube {
+            background: #bb0000;
+            color: white;
+        }
+
+        .fa-instagram {
+            background: #125688;
+            color: white;
+        }
+
+        .fa-snapchat-ghost {
+            background: #fffc00;
+            color: white;
+            text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
+        }
