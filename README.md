@@ -1,1 +1,2 @@
 # GradGateWay-PMS
+Welcome to GradGateway, It is a comprehensive platform designed to streamline the placement process for educational institutions. It facilitates the management of student placements by providing tools for employers to post job opportunities, students to apply for positions, and administrators to oversee the entire process. The system often includes features like resume uploads, selection details and communication channels to enhance the efficiency of the placement process.
