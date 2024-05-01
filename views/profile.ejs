@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Student Profile</title>
+<style>
+    
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f2f2f2;
+  }
+  .container {
+    width: 80%;
+    margin: 162px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  h1 {
+    text-align: center;
+    color: #333;
+  }
+  .profile {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+  .profile img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  .profile .details {
+    text-align: left;
+  }
+  .profile p {
+    margin: 15px ;
+  }
+  .button
+  {
+    margin: 20px 20px;
+
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <h1>Student Profile</h1>
+  <div class="profile">
+    <img src="https://img.icons8.com/arcade/64/000000/administrator-male.png" alt="Student Image">
+    <div class="details">
+      <p><strong>UserType:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Student</p>
+      <p><strong>enrollmentID:</strong>&nbsp;&nbsp;&nbsp;<%= userprofile.enrollmentID %></p>
+      <p><strong>College name:</strong>&nbsp;Charusat University</p>
+      <p><strong>Email:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= userprofile.email %></p>
+      <div class="button">
+      <button style="margin-left:5px;height:30px;width:70px" >back</button>
+     <a href="http://localhost:5000/index.html"><button style="margin-left:20px;height:30px;width:70px">logout</button></a>
+      </div>
+      
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+

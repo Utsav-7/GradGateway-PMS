@@ -1,0 +1,90 @@
+const fackdata=[
+
+    {
+        Name:"Deep",
+        Lastname:"Kalathiya",
+        enrollmentID:"21DCE041",
+        collegename:"DEPSTAR",
+        comapanyname:"Google",
+},
+{
+        Name:"Utsav",
+        Lastname:"Katharotiya",
+        enrollmentID:"21DCE043",
+        collegename:"DEPSTAR",
+        comapanyname:"CREST",
+},
+{
+    Name:"Devansh",
+    Lastname:"joshi",
+    enrollmentID:"21DCE037",
+    collegename:"DEPSTAR",
+    comapanyname:"IIM",
+},
+{
+    Name:"Jainam",
+    Lastname:"Jain",
+    enrollmentID:"21DCE033",
+    collegename:"DEPSTAR",
+    comapanyname:"Sinform",
+},
+{
+    Name:"Deep",
+    Lastname:"Mangukiya",
+    enrollmentID:"21it078",
+    collegename:"CSPIT",
+    comapanyname:"Google",
+},
+{
+    Name:"Utsav",
+    Lastname:"mangukiya",
+    enrollmentID:"21it077",
+    collegename:"CSPIT",
+    comapanyname:"TCS",
+
+},
+{
+    Name:"om",
+    Lastname:"italiya",
+    enrollmentID:"21ce077",
+    collegename:"CSPIT",
+    comapanyname:"tatvasoft",
+},
+{
+    Name:"Vishu",
+    Lastname:"bhingradiya",
+    enrollmentID:"21it013",
+    collegename:"CSPIT",
+    comapanyname:"IIIM",
+},
+{
+    Name:"Yug",
+    Lastname:"khunt",
+    enrollmentID:"21DCE047",
+    collegename:"DEPSTAR",
+    comapanyname:"Talent",
+},
+{
+    Name:"Gaurav",
+    Lastname:"patel",
+    enrollmentID:"21DCE081",
+    collegename:"DEPSTAR",
+    comapanyname:"CREST",
+},
+{
+    Name:"Dhruvit",
+    Lastname:"Sojitra",
+    enrollmentID:"21DCE128",
+    collegename:"DEPSTAR",
+    comapanyname:"Google",
+},
+{
+    Name:"Umang",
+    Lastname:"Kaila",
+    enrollmentID:"21DCE040",
+    collegename:"DEPSTAR",
+    comapanyname:"Motorola",
+}
+];
+
+module.exports={Data:fackdata};

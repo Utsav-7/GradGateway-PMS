@@ -5,14 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel = "icon" href ="icon.png" type = "image/x-icon"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Student Dashboard</title>
+
+    <title>TPO Dashboard</title>
     <link rel="stylesheet" href="/css/dashboard.css">
-    <link rel="stylesheet" href="../responsive.css">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+<link rel="stylesheet" href="/css/responsive.css">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
     rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
+<style>
+    table {
+        border-collapse: collapse;
+        width: 90%;
+        border-radius: 10px;
+    }
+    th, td {
+        border: 0px solid black;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+    .action{
+        width: fit-content;
+    }
+</style>
 </head>
  
 <body>
@@ -20,6 +40,7 @@
     <header>
         <div class="logosec">
             <div class="logo">GradGateway</div>
+        
             <img src= "https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png" class="icn menuicn" id="menuicn" alt="menu-icon">
         </div>
  
@@ -34,15 +55,17 @@
             <img src="https://img.icons8.com/external-prettycons-solid-prettycons/60/000000/external-notification-essentials-prettycons-solid-prettycons.png" class="icn" alt="">
             <img src= "https://img.icons8.com/arcade/64/000000/administrator-male.png" class="dpicn" alt="dp">
            
-                <div style="margin-left:-15px;text-decoration:underline;"> <a href="http://localhost:3000/profile/<%= checkuser.enrollmentID %>"style="color:black;"><%= checkuser.enrollmentID %></a></div>
+                <div style="margin-left:-15px;text-decoration:underline;"> </div>
+
+
                 <div class="logout" style="opacity: 1;"><i class="fa-solid fa-right-from-bracket"></i>
                     <a href="http://localhost:3000/index.html">logout</a>
+                
             
             
         </div>
  
     </header>
- 
     <div class="main-container">
         <div class="navcontainer">
             <nav class="nav">
@@ -51,12 +74,12 @@
                         <img src= "https://img.icons8.com/external-kmg-design-glyph-kmg-design/32/FFFFFF/external-dashboard-user-interface-kmg-design-glyph-kmg-design.png" class="nav-img" alt="dashboard">
                         <h3> Dashboard</h3>
                     </div>
-                    <a href="/dashboards/job-posting.html"style="text-decoration:none">
+ 
                     <div class="option2 nav-option">
-                        <img src= "https://img.icons8.com/ios-filled/50/resume-website.png" class="nav-img"  alt="articles">
-                       <h3 style="color: black;">Application</h3>
+                        <img src= "https://img.icons8.com/external-kmg-design-glyph-kmg-design/32/000000/external-student-avatar-kmg-design-glyph-kmg-design.png" class="nav-img"  alt="articles">
+                        <h3> Students</h3>
                     </div>
-                </a>
+ 
                     <div class="nav-option option3">
                         <img src= "https://img.icons8.com/ios-filled/50/000000/company.png" class="nav-img" alt="report">
                         <h3> Companies</h3>
@@ -66,19 +89,21 @@
                         <img src= "https://img.icons8.com/external-kmg-design-glyph-kmg-design/32/000000/external-statistics-design-thinking-kmg-design-glyph-kmg-design.png" class="nav-img" alt="institution">
                         <h3> Statatics</h3>
                     </div>
-                 <a href="http://localhost:3000/profile/<%= checkuser.enrollmentID %>" style="text-decoration: none;">
+ 
                     <div class="nav-option option5">
                         <img src= "https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" class="nav-img" alt="blog">
-                        <h3 style="color: black;"> Profile</h3>
+                        <h3> Profile</h3>
                     </div>
-                </a>
-                <a href="http://localhost:3000/index.html"style="text-decoration:none">
+ 
+                    <div class="nav-option option6">
+                        <img src="https://img.icons8.com/ios-filled/50/000000/settings.png" class="nav-img" alt="settings">
+                        <h3> Settings</h3>
+                    </div>
+ 
                     <div class="nav-option logout">
                         <img src= "https://img.icons8.com/ios-filled/50/000000/exit.png" class="nav-img" alt="logout">
-                        <h3 style="color: black;">Logout</h3>
-                        
+                        <a href="index.html" style="text-decoration: none;color:black;"><h3>Logout</h3></a>
                     </div>
-                 </a>
                 </div>
             </nav>
         </div>
@@ -95,8 +120,8 @@
  
                 <div class="box box1">
                     <div class="text">
-                        <h2 class="topic-heading">5</h2>
-                        <h2 class="topic">Applied Job Application</h2>
+                        <h2 class="topic-heading">1.2k</h2>
+                        <h2 class="topic">Registered Students</h2>
                     </div>
  
                     <img src= "https://img.icons8.com/ios-filled/50/FFFFFF/edit-user-male.png" alt="Views">
@@ -107,6 +132,7 @@
                         <h2 class="topic-heading">150+</h2>
                         <h2 class="topic">Visited Copanies</h2>
                     </div>
+ 
                     <img src= "https://img.icons8.com/ios-filled/50/000000/company.png" alt="likes">
                 </div>
  
@@ -125,21 +151,61 @@
                         <h2 class="topic">Highest Package</h2>
                     </div>
  
-                    <img src="https://img.icons8.com/dotty/90/000000/stack-of-money.png" alt="salary">
+                    <img src="https://img.icons8.com/dotty/90/000000/stack-of-money.png" alt="Placed">
                 </div>
             </div>
+        
+            <div class="report-container">
+                <div class="report-header" style="margin-right: 30px;">
+                    <h2>Placement History</h2>
+
+                </div>
+                <table style="margin-top:30px ;">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>lastname</th>
+                            <th>enrollmentID</th>
+                            <th>Collegename</th>
+                            <th>CompanyName</th>
+                            <th width="80px"><center>Actions</center></th>                       
+                    </thead>
+                    <tbody>
+                        <% alldata.forEach(item => { %>
+                            <tr>
+                                <td> <%= item.Name %></td>
+                                <td><%= item.Lastname %></td>
+                                <td><%= item.enrollmentID %></td>
+                                <td><%= item.collegename %></td>
+                                <td><%= item.comapanyname%></td>
+                                <td style="display: flex;width:fit-content" >
+                            
+                                   <form action="/delete/<%= item.enrollmentID %>/?_method=DELETE" method="POST" style="margin-left:30px;margin-right:30px;"> <!-- Form for delete button -->
+                                    <button type="submit" class="btn btn-primary">Selected</button>
+                                </form>
+                                
+                                   
+                                
+                                </td>
+                            </tr>
+                        <% }); %>
+                    </tbody>
+                </table>
+            </div>
+
+
  
             <!--<div class="report-container">
                 <div class="report-header">
-                    <h1 class="recent-Articles">Company Details</h1>
+                    <h1 class="recent-Articles">Student Details</h1>
                     <button class="view">View All</button>
                 </div>
 
                 <div class="report-body">
                     <div class="report-topic-heading">
-                        <h3 class="t-op">Company Name</h3>
-                        <h3 class="t-op">Date</h3>
-                        <h3 class="t-op">Domain</h3>
+                        <h3 class="t-op">Student Name</h3>
+                        <h3 class="t-op">Student ID No.</h3>
+                        <h3 class="t-op">Company</h3>
                         <h3 class="t-op">Status</h3>
                     </div>
  
@@ -148,63 +214,63 @@
                             <h3 class="t-op-nextlvl">Article 73</h3>
                             <h3 class="t-op-nextlvl">2.9k</h3>
                             <h3 class="t-op-nextlvl">210</h3>
-                            <h3 class="t-op-nextlvl label-tag">Visited</h3>
+                            <h3 class="t-op-nextlvl label-tag">Placed</h3>
                         </div>
  
                         <div class="item1">
                             <h3 class="t-op-nextlvl">Article 72</h3>
                             <h3 class="t-op-nextlvl">1.5k</h3>
                             <h3 class="t-op-nextlvl">360</h3>
-                            <h3 class="t-op-nextlvl label-tag">Visited</h3>
+                            <h3 class="t-op-nextlvl label-tag">Placed</h3>
                         </div>
  
                         <div class="item1">
                             <h3 class="t-op-nextlvl">Article 71</h3>
                             <h3 class="t-op-nextlvl">1.1k</h3>
                             <h3 class="t-op-nextlvl">150</h3>
-                            <h3 class="t-op-nextlvl label-tag">Ongoing</h3>
+                            <h3 class="t-op-nextlvl label-tag">Placed</h3>
                         </div>
  
                         <div class="item1">
                             <h3 class="t-op-nextlvl">Article 70</h3>
                             <h3 class="t-op-nextlvl">1.2k</h3>
                             <h3 class="t-op-nextlvl">420</h3>
-                            <h3 class="t-op-nextlvl label-tag">Ongoing</h3>
+                            <h3 class="t-op-nextlvl label-tag">Placed</h3>
                         </div>
  
                         <div class="item1">
                             <h3 class="t-op-nextlvl">Article 69</h3>
                             <h3 class="t-op-nextlvl">2.6k</h3>
                             <h3 class="t-op-nextlvl">190</h3>
-                            <h3 class="t-op-nextlvl label-tag">Upcoming</h3>
+                            <h3 class="t-op-nextlvl label-tag">Placed</h3>
                         </div>
  
                         <div class="item1">
                             <h3 class="t-op-nextlvl">Article 68</h3>
                             <h3 class="t-op-nextlvl">1.9k</h3>
                             <h3 class="t-op-nextlvl">390</h3>
-                            <h3 class="t-op-nextlvl label-tag">Upcoming</h3>
+                            <h3 class="t-op-nextlvl label-tag">Placed</h3>
                         </div>
  
                         <div class="item1">
                             <h3 class="t-op-nextlvl">Article 67</h3>
                             <h3 class="t-op-nextlvl">1.2k</h3>
                             <h3 class="t-op-nextlvl">580</h3>
-                            <h3 class="t-op-nextlvl label-tag">Upcoming</h3>
+                            <h3 class="t-op-nextlvl label-tag">Placed</h3>
                         </div>
  
                         <div class="item1">
                             <h3 class="t-op-nextlvl">Article 66</h3>
                             <h3 class="t-op-nextlvl">3.6k</h3>
                             <h3 class="t-op-nextlvl">160</h3>
-                            <h3 class="t-op-nextlvl label-tag">Upcoming</h3>
+                            <h3 class="t-op-nextlvl label-tag">Placed</h3>
                         </div>
  
                         <div class="item1">
                             <h3 class="t-op-nextlvl">Article 65</h3>
                             <h3 class="t-op-nextlvl">1.3k</h3>
                             <h3 class="t-op-nextlvl">220</h3>
-                            <h3 class="t-op-nextlvl label-tag">Upcoming</h3>
+                            <h3 class="t-op-nextlvl label-tag">Placed</h3>
                         </div>
  
                     </div>
@@ -213,6 +279,6 @@
         </div>
     </div>
  
-   
+    <script src="../js/dashboard.js"></script>
 </body>
 </html>

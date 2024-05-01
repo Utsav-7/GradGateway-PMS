@@ -4,10 +4,7 @@ const mongoose = require('mongoose');
 
 // create schemas
 const user = new mongoose.Schema({
-    userType:{
-        type:String,
-        required:true
-    },
+    
     enrollmentID:{
         type: String,
         unique: true,
