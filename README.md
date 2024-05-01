@@ -58,4 +58,4 @@ Welcome to GradGateway, It is a comprehensive platform designed to streamline th
 
 ## License
 
-This project is licensed under the [MIT License](LICENSE).
+This project is licensed under the [MIT License](License).
