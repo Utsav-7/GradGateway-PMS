@@ -26,11 +26,23 @@ Welcome to GradGateway, It is a comprehensive platform designed to streamline th
 
 ## Installation
 
-1. Clone the repository: `git clone https://github.com/Utsav-7/GradGateway-PMS`
-2. Navigate to the project directory: `cd GradGateway-PMS`
-3. Install dependencies: `npm install`
-4. Set up MongoDB and configure connection details in the backend code.
-5. Run the application: `npm start`
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Utsav-7/GradGateway-PMS
+   ```
+3. Navigate to the project directory:
+   ```bash
+   cd GradGateway-PMS
+   ```
+4. Install dependencies:
+   ```bash
+   npm install
+   ```
+5. Set up MongoDB and configure connection details in the backend code.
+6. Run the application:
+   ```bash
+   npm start
+   ```
 
 ## Usage
 1. Access the application through the provided URL (e.g., http://localhost:3000).
