@@ -11,10 +11,10 @@ const contact=require("./models/contact.js");
 const app = express();
 const port = process.env.PORT || 3000;
 
-main().then(console.log("connection succefully")).catch(err => console.log(err));
+// main().then(console.log("connection succefully")).catch(err => console.log(err));
 app.use(methodOverride('_method'));
 async function main() {
-  await mongoose.connect('mongodb://127.0.0.1:27017/Student');
+  await mongoose.connect('mongodb+srv://utsav0712:utsav0712@cluster-1.lh3xn9t.mongodb.net/');
 }
 
 app.set("views",path.join(__dirname,"views"));
@@ -71,19 +71,19 @@ app.get('/profile/:id',async(req,res)=>{
     res.render('profile.ejs',{userprofile});
 
 });
-app.get('/testing',async(req,res)=>{
-    let test1=new contact({
-        fullName:"Jainam",
-        Lastname:"Jain",
-        enrollmentID:"21dce033",
-        email:"21dce033@charusat.edu.in",
-        message:"hello"
-    });
+// app.get('/testing',async(req,res)=>{
+//     let test1=new contact({
+//         fullName:"Jainam",
+//         Lastname:"Jain",
+//         enrollmentID:"21dce033",
+//         email:"21dce033@charusat.edu.in",
+//         message:"hello"
+//     });
 
-    await test1.save();
-    res.send("saved in database");
+//     await test1.save();
+//     res.send("saved in database");
 
-});
+// });
 
 
 
@@ -167,20 +167,20 @@ app.post('/signin', async (req,res) =>{
 
 // Email setup for Contact Us page
 app.post('/send',async(req,res)=>{
-    const contactdata={
-        fullName:req.body.fullName,
-         Lastname:req.body.mobile,
-         enrollmentID:req.body.enrollmentID,
-         email:req.body.email,
-         message:req.body.message
-    }
-    const jobdata = await contact.insertMany(contactdata);
-    
     const fullName = req.body.fullName;
     const mobile = req.body.mobileNumeber;
     const email = req.body.email;
     const message = req.body.message;
 
+    const contactdata={
+        fullName,
+        mobile,
+        email,
+        message
+    }
+    const jobdata = await contact.insertMany(contactdata);
+    
+   
     const transporter = nodemailer.createTransport({
         service: 'gmail',
         auth: {

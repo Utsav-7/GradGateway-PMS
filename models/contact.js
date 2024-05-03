@@ -4,8 +4,7 @@ const schema=mongoose.Schema;
 const contactschema= new schema(
     {
         fullName:String,
-        Lastname:String,
-        enrollmentID:String,
+        mobileNo:String,
         email:String,
         message:String
            
