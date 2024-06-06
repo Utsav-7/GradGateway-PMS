@@ -62,7 +62,13 @@ This project is licensed under the [MIT License](License).
 
 ## Screenshots
 ![screencapture-localhost-3000-blog-html-2024-05-01-11_51_37](https://github.com/devxnsh1209/GradGateway-PMS/assets/100987818/788e6bff-528a-46eb-ba98-3a0bc2cf2254)
+
+
 ![screencapture-localhost-3000-contactUs-html-2024-05-01-11_49_53](https://github.com/devxnsh1209/GradGateway-PMS/assets/100987818/6c4b8acc-ad1c-42b7-80fb-ab270030c56e)
+
+
 ![screencapture-localhost-3000-signin-2024-05-01-11_59_38](https://github.com/devxnsh1209/GradGateway-PMS/assets/100987818/c36c9091-e68f-464c-b55a-e072eea90d0e)
+
+
 ![screencapture-localhost-3000-SignUpIn-html-2024-05-01-11_48_50](https://github.com/devxnsh1209/GradGateway-PMS/assets/100987818/f8792eae-0b3d-4826-a94e-e12e2a18db66)
 
