@@ -28,7 +28,7 @@ Welcome to GradGateway, It is a comprehensive platform designed to streamline th
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/Utsav-7/GradGateway-PMS
+   git clone https://github.com/devxnsh1209/GradGateway-PMS
    ```
 3. Navigate to the project directory:
    ```bash
