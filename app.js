@@ -20,7 +20,7 @@ app.use(methodOverride('_method'));
 
 // --------------------------- mongo db connection that not working correctly
 // async function main() {
-//   await mongoose.connect('mongodb+srv://utsav0712:utsav0712@cluster-1.lh3xn9t.mongodb.net/');
+//   await mongoose.connect('your_mongo_db_url');
 // }
 // main().then(console.log("connection succefully")).catch(err => console.log(err));
 
@@ -28,7 +28,7 @@ app.use(methodOverride('_method'));
 // ---------------------- Mongo DB (Atlas) Connection -------------------------------------
 
 // const { MongoClient, ServerApiVersion } = require('mongodb');
-// const uri = "mongodb+srv://utsav0712:utsav0712@cluster-1.lh3xn9t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-1";
+// const uri = "your_mongo_db_url";
 
 // // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 // const client = new MongoClient(uri, {
@@ -56,7 +56,7 @@ app.use(methodOverride('_method'));
 
 
 
-const uri ="mongodb+srv://utsav0712:utsav0712@cluster-1.lh3xn9t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-1";
+const uri ="your_mongo_db_url";
 
 if (!uri) {
   console.error('MongoDB URI is not defined. Please check your .env file.');
@@ -327,14 +327,14 @@ app.post('/send',async(req,res)=>{
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user:'utsavkatharotiya0712@gmail.com',
-                pass:'ohkl erbl gcuw lhgh'              
+                user:'your_gmail_address',
+                pass:'your_gmail_key'              
             }
         });
     
     
         const mailOptions = {
-            from: '"GradGateway - PMS"<utsavkatharotiya0712@gmail.com>',
+            from: '"GradGateway - PMS"<your_email_address>',
             to: email,
             subject: 'Thanks for contacting.',
             html: `
