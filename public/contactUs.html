@@ -236,8 +236,35 @@
         // Prevent the default form submission behavior
         event.preventDefault();
         
-        // Your code to handle form submission and send the email goes here
-        
+        // Validate the full name
+        const fullNameField = document.querySelector('input[name="fullName"]');
+        const fullName = fullNameField.value;
+        const fullNamePattern = /^[A-Za-z\s]+$/;
+
+        if (!fullNamePattern.test(fullName)) {
+            alert('Please enter a valid full name (alphabetic characters only).');
+            return; // Prevent form submission
+        }
+
+        // Validate the mobile number
+        const mobileNumberField = document.querySelector('input[name="mobileNumber"]');
+        const mobileNumber = mobileNumberField.value;
+        const indianMobileNumberPattern = /^[6-9]\d{9}$/;
+
+        if (!indianMobileNumberPattern.test(mobileNumber)) {
+            alert('Please enter a valid Indian mobile number.');
+            return; // Prevent form submission
+        }
+
+        // Validate the email
+        const emailField = document.querySelector('input[name="email"]');
+        const email = emailField.value;
+        const emailPattern = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+        if (!emailPattern.test(email)) {
+            alert('Please enter a valid email address.');
+            return; // Prevent form submission
+        }
         // Reset the form fields after submission
         resetForm();
     });

@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #000000, #2c2c2c, #434343, #bfbfbf, #ffffff);
+            color: #333;
+        }
+        .container {
+            width: 50%;
+            margin: 100px auto;
+            background-color: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        input[type="text"], input[type="email"] {
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #3498db;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
+        }
+        .back-button {
+            background-color: #95a5a6;
+        }
+        .back-button:hover {
+            background-color: #7f8c8d;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Update Profile</h1>
+    <form action="/updateStudent/<%= user.enrollmentID %>" method="POST">
+        <label for="name">First Name:</label>
+        <input type="text" id="name" name="name" value="<%= user.Name %>" required>
+
+        <label for="lastname">Last Name:</label>
+        <input type="text" id="lastname" name="lastname" value="<%= user.Lastname %>" required>
+
+        <label for="college">College Name:</label>
+        <input type="text" id="college" name="college" value="<%= user.collegename %>" required>
+
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" value="<%= user.email %>" required>
+        
+        <label for="company">Company:</label>
+        <input type="text" id="company" name="company" value="<%= user.comapanyname %>" required>
+        
+        <button type="submit">Update</button>
+        <button type="button" class="back-button" onclick="history.back()" style="width: 100px;">Back</button></a>
+    </form>
+</div>
+
+</body>
+</html>

@@ -7,31 +7,60 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background: linear-gradient(to right, #ff6b6b, #ff9a9e, #f7d794, #f0e6ef, #c9d6ff);
             text-align: center;
-            margin-top: 50px;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #333;
         }
         .container {
             background-color: #fff;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0px 0px 10px 0px rgba(0,0,0,0.1);
-            width: 300px;
-            margin: 0 auto;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            width: 90%;
+            max-width: 400px;
         }
         h2 {
-            color: #ff0000;
+            color: #e74c3c;
+            margin-bottom: 20px;
+        }
+        p {
+            font-size: 16px;
+            margin-bottom: 30px;
+        }
+        .button {
+            background-color: #3498db;
+            border: none;
+            color: white;
+            padding: 15px 25px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+        }
+        .button:hover {
+            background-color: #2980b9;
+        }
+        .icon {
+            font-size: 50px;
+            color: #e74c3c;
+            margin-bottom: 20px;
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <div class="icon">🔒</div>
         <h2>Wrong Password</h2>
-        <p>@<%= checkuser.enrollmentID %></p>
-        <p>your Password is invalid</p>
-       <a href="http://localhost:3000/SignUpIn.html"><button onclick="goBack()">Go Back</button></a> 
+        <p>Username: @<%= checkuser.enrollmentID %></p>
+        <p>Your password is invalid. Please try again.</p>
+        <a href="http://localhost:3000/SignUpIn.html" class="button">Go Back</a>
     </div>
-
-    
 </body>
 </html>

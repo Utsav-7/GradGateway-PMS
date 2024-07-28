@@ -6,8 +6,7 @@ const contactschema= new schema(
         fullName:String,
         mobileNo:String,
         email:String,
-        message:String
-           
+        message:String 
     }
 );
 const contact= new mongoose.model( "contact",contactschema);

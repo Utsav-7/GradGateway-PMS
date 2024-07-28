@@ -12,12 +12,12 @@ html{
     border: 1px solid transparent;
     top: 0px;
     width: 100vw;
-}
+  }
 
 
 a{
     color: #ffffff !important;
-    font-weight: 900 !important;
+    font-weight: bolder !important;
 }
 
 a:hover{

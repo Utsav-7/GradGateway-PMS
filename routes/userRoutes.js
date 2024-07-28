@@ -16,4 +16,21 @@ router.get('/:enrollmentID', async (req, res) => {
     }
 });
 
+// routes/updateStatus.js
+const express = require('express');
+const Student = require('../models/student');
+
+// Route to update student status
+router.post('/update-status/:id', async (req, res) => {
+    try {
+        const { status } = req.body;
+        await Student.findByIdAndUpdate(req.params.id, { status });
+        res.redirect('/placed-students'); // Redirect back to the placed students page
+    } catch (error) {
+        console.error(error);
+        res.status(500).send('Server Error');
+    }
+});
+
+
 module.exports = router;

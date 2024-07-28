@@ -5,47 +5,77 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Student Profile</title>
 <style>
-    
   body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f2f2f2;
+    background: linear-gradient(to right, #000000, #2c2c2c, #434343, #bfbfbf, #ffffff); /* Extended gradient */
+    color: #333;
   }
   .container {
     width: 80%;
-    margin: 162px auto;
+    margin: 100px auto;
     background-color: #fff;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
   }
   h1 {
     text-align: center;
     color: #333;
+    margin-bottom: 20px;
+    font-size: 2.5em;
+    font-weight: bold;
   }
   .profile {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
+    gap: 20px; /* Added gap for spacing */
   }
   .profile img {
     width: 150px;
     height: 150px;
     border-radius: 50%;
-    margin-right: 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2); /* Enhanced shadow for depth */
+    border: 4px solid #fff; /* White border for contrast */
   }
   .profile .details {
     text-align: left;
   }
   .profile p {
-    margin: 15px ;
+    margin: 10px 0;
+    font-size: 16px;
+    line-height: 1.5;
   }
-  .button
-  {
-    margin: 20px 20px;
-
+  .profile p strong {
+    color: #555;
+  }
+  .button {
+    margin-top: 20px;
+    display: flex;
+    gap: 20px; /* Added gap for spacing */
+  }
+  .button a {
+    text-decoration: none;
+  }
+  .button button {
+    background-color: #3498db;
+    border: none;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  .button button:hover {
+    background-color: #2980b9;
+    transform: scale(1.05);
   }
 </style>
 </head>
@@ -56,20 +86,17 @@
   <div class="profile">
     <img src="https://img.icons8.com/arcade/64/000000/administrator-male.png" alt="Student Image">
     <div class="details">
-      <p><strong>UserType:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;Student</p>
-      <p><strong>enrollmentID:</strong>&nbsp;&nbsp;&nbsp;<%= userprofile.enrollmentID %></p>
-      <p><strong>College name:</strong>&nbsp;Charusat University</p>
-      <p><strong>Email:</strong>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<%= userprofile.email %></p>
+      <p><strong>User Type:</strong> Student</p>
+      <p><strong>Enrollment ID:</strong> <%= userprofile.enrollmentID %></p>
+      <p><strong>College Name:</strong> Charusat University</p>
+      <p><strong>Email:</strong> <%= userprofile.email %></p>
       <div class="button">
-      <button style="margin-left:5px;height:30px;width:70px" >back</button>
-     <a href="http://localhost:5000/index.html"><button style="margin-left:20px;height:30px;width:70px">logout</button></a>
+        <button onclick="history.back()">Back</button>
+        <a href="http://localhost:5000/index.html"><button>Logout</button></a>
       </div>
-      
     </div>
   </div>
 </div>
 
 </body>
 </html>
-
-
