@@ -1,6 +1,6 @@
 const user=require('./models/model'); 
 const mongoose = require('mongoose');
-const connect = mongoose.connect('mongodb+srv://utsav0712:utsav0712@cluster-1.lh3xn9t.mongodb.net/');
+const connect = mongoose.connect('your_mongo-db_url');
 
 
 connect.then(() => {
