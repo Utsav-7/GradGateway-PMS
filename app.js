@@ -3,7 +3,6 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 var methodOverride = require('method-override')
 const express = require('express');
-const router = express.Router();
 const path = require('path');
 const initData=require("./fackdata.js");
 const nodemailer = require('nodemailer');
@@ -11,7 +10,6 @@ const collection=require("./models/User.js");
 const bodyParser = require('body-parser');
 const placement=require("./models/studentjobform.js");
 const contact=require("./models/contact.js");
-const session = require('express-session');
 const app = express();
 const port = process.env.PORT || 3000;
 const Student = require('./models/Student.js'); // Adjust the path as needed
@@ -23,31 +21,15 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 
 
-// Middleware to check if user is authenticated
-function isAuthenticated(req, res, next) {
-    if (req.session.user) {
-        return next();
-    }
-    res.redirect('/signin');
-}
+const placedStudentRoutes = require('./routes/placedStudentRoutes'); // Adjust the path as necessary
+const adminStudentRoutes = require('./routes/adminStudentRoutes'); // Adjust the path as necessary
 
-const crypto = require('crypto');
-const secret = crypto.randomBytes(64).toString('hex');
-console.log(secret);
-
-router.use(session({
-    secret: `${secret}`,
-    resave: false,
-    saveUninitialized: true,
-}));
-
-const studentRoutes = require('./routes/studentRoutes'); // Adjust the path as necessary
-const studentRouter=require('./routes/studentRoutes.js')
-app.use('/', studentRouter);
+app.use('/', placedStudentRoutes);
+app.use('/', adminStudentRoutes);
 
 // --------------------------- mongo db connection that not working correctly
 // async function main() {
-//   await mongoose.connect('your_mongo_db_url');
+//   await mongoose.connect('mongodb+srv://utsav0712:utsav0712@cluster-1.lh3xn9t.mongodb.net/');
 // }
 // main().then(console.log("connection succefully")).catch(err => console.log(err));
 
@@ -55,7 +37,7 @@ app.use('/', studentRouter);
 // ---------------------- Mongo DB (Atlas) Connection -------------------------------------
 
 // const { MongoClient, ServerApiVersion } = require('mongodb');
-// const uri = "your_mongo_db_url";
+// const uri = "mongodb+srv://utsav0712:utsav0712@cluster-1.lh3xn9t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-1";
 
 // // Create a MongoClient with a MongoClientOptions object to set the Stable API version
 // const client = new MongoClient(uri, {
@@ -83,7 +65,7 @@ app.use('/', studentRouter);
 
 
 
-const uri ="your_mongo_db_url";
+const uri ="mongodb+srv://utsav0712:utsav0712@cluster-1.lh3xn9t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-1";
 
 if (!uri) {
   console.error('MongoDB URI is not defined. Please check your .env file.');
@@ -124,66 +106,6 @@ app.listen(port, () => {
 });
 
 
-// Route to render the update page with current user details
-app.get('/updateStudent/:id', async (req, res) => {
-    try {
-        const { id } = req.params;
-        console.log('Fetching user with ID:', id);
-
-        const user = await placement.findOne({ enrollmentID: id });
-        if (!user) return res.status(404).send('User not found');
-
-        res.render('updateStudent', { user });
-    } catch (err) {
-        console.error('Error fetching user:', err);
-        res.status(500).send('Server error');
-    }
-});
-
-// Route to handle form submission for updating user details
-app.post('/updateStudent/:id', async (req, res) => {
-    try {
-        const { id } = req.params;
-        const { name, lastname, college, email, company } = req.body;
-
-        console.log('Updating user with ID:', id);
-
-        const updatedUser = await placement.findOneAndUpdate(
-            { enrollmentID: id },
-            {
-                Name: name,
-                Lastname: lastname,
-                collegename: college,
-                email: email,
-                comapanyname: company  // Update the company name
-            },
-            { new: true } // Return the updated document
-        );
-
-        if (!updatedUser) return res.status(404).send('User not found');
-
-        console.log('User updated:', updatedUser);
-
-        // Fetch updated data and render the admin page
-        const alldata = await placement.find();
-        res.render('admin', { alldata });
-    } catch (err) {
-        console.error('Error updating user:', err);
-        res.status(500).send('Server error');
-    }
-});
-
-app.delete('/delete/:id',async(req,res)=>{
-    let {id}=req.params;
-  console.log(id);
-    
-  let del=await placement.deleteOne({enrollmentID:id});
-  console.log(del);
-  let alldata = await placement.find();
-
-    res.render("admin.ejs",{alldata});
-})
-
 
 app.post('/signin/submit-job', async (req, res) =>{
 
@@ -198,14 +120,11 @@ app.post('/signin/submit-job', async (req, res) =>{
 
     const jobdata = await placement.insertMany(data);
     const checkuser = await collection.findOne({enrollmentID: req.body.enrollmentID});
-    req.session.user = user;
-    res.redirect('/student');
-    // res.render("student.ejs",{checkuser});
+
+    res.render("student.ejs",{checkuser});
    
 });
-router.get('/student', isAuthenticated,(req, res) => {
-    res.render("student.ejs",{checkuser}); // Render the admin dashboard view
-});
+
 
 app.get('/profile/:id',async(req,res)=>{
     let {id}=req.params;
@@ -357,14 +276,14 @@ app.post('/send',async(req,res)=>{
         const transporter = nodemailer.createTransport({
             service: 'gmail',
             auth: {
-                user:'your_gmail_address',
-                pass:'your_gmail_key'              
+                user:'utsavkatharotiya0712@gmail.com',
+                pass:'ohkl erbl gcuw lhgh'              
             }
         });
     
     
         const mailOptions = {
-            from: '"GradGateway - PMS"<your_email_address>',
+            from: '"GradGateway - PMS"<utsavkatharotiya0712@gmail.com>',
             to: email,
             subject: 'Thanks for contacting.',
             html: `

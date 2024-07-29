@@ -37,7 +37,7 @@ header {
   width: 100vw;
   padding: 0 30px;
   background-color: var(--background-color1);
-  position: fixed;
+  /* position: fixed; */
   z-index: 100;
   box-shadow: 1px 1px 15px rgba(161, 182, 253, 0.825);
   display: flex;
@@ -121,9 +121,8 @@ header {
 }
 .main-container {
   display: flex;
-  width: 100vw;
   position: relative;
-  top: 70px;
+  /* top: 70px; */
   z-index: 1;
 }
 .dpicn {
@@ -155,6 +154,7 @@ header {
   align-items: center;
   flex-wrap: wrap;
   gap: 50px;
+  margin-bottom: 50px;
 }
 .nav {
   min-height: 91vh;
@@ -247,6 +247,9 @@ header {
 .box:nth-child(4) {
   background-color: var(--two-use-color);
 }
+.box:nth-child(5) {
+  background-color: var(--one-use-color);
+}
  
 .box img {
   height: 50px;
@@ -266,11 +269,11 @@ header {
 }
  
 .report-container {
-  height: 300vh;
+  height: fit-content;
   width: 100%;
-  margin: 70px auto 0px auto;
+  /* margin: 70px auto 0px auto; */
   background-color: #ffffff;
-  border-radius: 30px;
+  /* border-radius: 30px; */
   box-shadow: 3px 3px 10px rgb(188, 188, 188);
   padding: 0px 20px 20px 20px;
 }
@@ -279,8 +282,9 @@ header {
   width: 50%;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   padding: 20px 20px 10px 20px;
+  margin-bottom: 10px;
   border-bottom: 2px solid rgba(0, 20, 151, 0.59);
 }
  
