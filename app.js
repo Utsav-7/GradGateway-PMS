@@ -3,20 +3,47 @@ require('dotenv').config();
 const mongoose = require('mongoose');
 var methodOverride = require('method-override')
 const express = require('express');
+const router = express.Router();
 const path = require('path');
 const initData=require("./fackdata.js");
 const nodemailer = require('nodemailer');
 const collection=require("./models/User.js");
-const bodyparser = require('body-parser');
+const bodyParser = require('body-parser');
 const placement=require("./models/studentjobform.js");
 const contact=require("./models/contact.js");
+const session = require('express-session');
 const app = express();
 const port = process.env.PORT || 3000;
-const Student = require('./models/student'); // Adjust the path as needed
+const Student = require('./models/Student.js'); // Adjust the path as needed
 
 
 // ---------------------------middlewares -------------------
 app.use(methodOverride('_method'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+
+
+// Middleware to check if user is authenticated
+function isAuthenticated(req, res, next) {
+    if (req.session.user) {
+        return next();
+    }
+    res.redirect('/signin');
+}
+
+const crypto = require('crypto');
+const secret = crypto.randomBytes(64).toString('hex');
+console.log(secret);
+
+router.use(session({
+    secret: `${secret}`,
+    resave: false,
+    saveUninitialized: true,
+}));
+
+const studentRoutes = require('./routes/studentRoutes'); // Adjust the path as necessary
+const studentRouter=require('./routes/studentRoutes.js')
+app.use('/', studentRouter);
 
 // --------------------------- mongo db connection that not working correctly
 // async function main() {
@@ -169,12 +196,15 @@ app.post('/signin/submit-job', async (req, res) =>{
     }
     console.log(data);
 
-    
     const jobdata = await placement.insertMany(data);
     const checkuser = await collection.findOne({enrollmentID: req.body.enrollmentID});
-    
-    res.render("student.ejs",{checkuser});
+    req.session.user = user;
+    res.redirect('/student');
+    // res.render("student.ejs",{checkuser});
    
+});
+router.get('/student', isAuthenticated,(req, res) => {
+    res.render("student.ejs",{checkuser}); // Render the admin dashboard view
 });
 
 app.get('/profile/:id',async(req,res)=>{

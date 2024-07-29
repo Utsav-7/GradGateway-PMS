@@ -6,18 +6,18 @@ html{
   overflow-x:hidden;
 }
 .navbar {
-    /* position: fixed!important; */
-    min-height: 50px;
-    margin-bottom: 0px!important;
-    border: 1px solid transparent;
-    top: 0px;
-    width: 100vw;
-  }
+  /* position: fixed!important; */
+  min-height: 50px;
+  margin-bottom: 0px!important;
+  border: 1px solid transparent;
+  top: 0px;
+  width: 100vw;
+}
 
 
 a{
     color: #ffffff !important;
-    font-weight: bolder !important;
+    /* font-weight: bolder !important; */
 }
 
 a:hover{
@@ -57,22 +57,206 @@ img{
   /* color: white; */
   text-align: left;
   padding: 20px;
-  width:400px;
+  width:550px;
 }
 
-/* Top right text */
+
+
+.top-left {
+  position: absolute;
+  left: 12%;
+  top: 27%;
+  transform: translate(-10%, -20%);
+  background: rgba(255, 255, 255, 0.9);
+  padding: 20px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  max-width: 600px;
+  text-align: center;
+}
+
+.top-left h1 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  color: #2c3e50;
+}
+
+.top-left p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #5e6364;}
+
+.top-left p span {
+  color: #3498db;
+  font-weight: bold!important;
+}
+
+@media (max-width: 768px) {
+  .top-left {
+    left: 50%;
+    transform: translate(-50%, -20%);
+    padding: 15px 20px;
+  }
+
+  .top-left h1 {
+    font-size: 28px;
+  }
+
+  .top-left p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+  .top-left {
+    width: 90%;
+    padding: 10px 15px;
+  }
+
+  .top-left h1 {
+    font-size: 24px;
+  }
+
+  .top-left p {
+    font-size: 14px;
+  }
+}
+
+
+
+
+
+/* Top right text
 .top-right {
   position: absolute;
   top: 8px;
   right: 16px;
-}
+} */
 
-.statistics{
+
+
+
+
+.activity {
   width: auto;
-  height: 405px;
-  /* background-color: #44bae8; */
+  background-color: #fff;
+  padding: 40px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.5);
+  margin-bottom: 20px;
+  border-radius: 10px;
 }
 
+.activity h1 {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.activity ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 1200px;
+}
+
+.activity ul li {
+  background: #ecf0f1;
+  margin: 10px 0;
+  padding: 15px 20px;
+  border-radius: 5px;
+  font-size: 18px;
+  color: #5a5f60;
+  line-height: 1.6;
+  transition: background 0.3s;
+}
+
+.activity ul li:hover {
+  background: #dfe6e9;
+}
+
+@media (max-width: 768px) {
+  .activity h1 {
+    font-size: 28px;
+  }
+
+  .activity ul li {
+    font-size: 16px;
+    padding: 10px 15px;
+  }
+}
+
+@media (max-width: 480px) {
+  .activity h1 {
+    font-size: 24px;
+  }
+
+  .activity ul li {
+    font-size: 14px;
+    padding: 8px 10px;
+  }
+}
+
+
+
+.statistics {
+  width: 100%;
+  background-color: #fff;
+  padding: 40px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+}
+
+.statistics h1 {
+  text-align: center;
+  color: #2c3e50;
+  font-size: 36px;
+  margin-bottom: 20px;
+}
+
+.chart-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.barchart {
+  width: 100%;
+  max-width: 350px;
+  height: 400px;
+  background-color: #ecf0f1;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+@media (max-width: 768px) {
+  .statistics h1 {
+      font-size: 28px;
+  }
+
+  .barchart {
+      max-width: 300px;
+      height: 350px;
+  }
+}
+
+@media (max-width: 480px) {
+  .statistics h1 {
+      font-size: 24px;
+  }
+
+  .barchart {
+      max-width: 100%;
+      height: 300px;
+  }
+}
 
 
 .company{
@@ -80,6 +264,33 @@ img{
   height: auto;
   /* background-color: skyblue; */
 }
+
+.carousel-container {
+            width: 1200px;
+            overflow: hidden;
+            margin: 0 auto;
+        }
+
+        .carousel {
+            display: flex;
+            animation: scroll 25s linear infinite; /* Auto-scrolling animation */
+        }
+
+        .carousel img {
+            width: 200px; /* Adjust the logo size as needed */
+            height: 200px;
+            margin: 0 30px; /* Space between logos */
+        }
+
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%); /* Move one logo's width to the left */
+            }
+        }
+
 
 .testimonial-container {
   display: flex;

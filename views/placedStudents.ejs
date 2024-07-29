@@ -2,21 +2,16 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <link rel="icon" href="icon.png" type="image/x-icon"> 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Placed Students</title>
+    <title>Students Data</title>
     <link rel="stylesheet" href="/css/dashboard.css">
     <link rel="stylesheet" href="/css/responsive.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
         table {
+            width: 100%;
             border-collapse: collapse;
-            width: 90%;
-            border-radius: 10px;
         }
         th, td {
             border: 1px solid #ddd;
@@ -25,16 +20,21 @@
         }
         th {
             background-color: #f4f4f4;
-            color: #555;
         }
         tr:nth-child(even) {
             background-color: #f9f9f9;
         }
-        .actions {
-            display: flex;
-            gap: 10px; /* Add spacing between elements */
-            justify-content: center;
-            align-items: center;
+        .status {
+            padding: 5px 10px;
+            border-radius: 5px;
+            color: #fff;
+            font-weight: bold;
+        }
+        .status.placed {
+            background-color: #28a745; /* Green for placed */
+        }
+        .status.not-placed {
+            background-color: #dc3545; /* Red for not placed */
         }
         .btn {
             padding: 8px 15px;
@@ -59,175 +59,95 @@
             background-color: #c0392b;
             transform: scale(1.05);
         }
-        .dropdown-menu {
-            min-width: 120px;
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            color: #fff;
+            background-color: #3498db;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
         }
-        .status-dropdown {
-            display: inline-block;
+        button:hover {
+            background-color: #2980b9;
+            transform: scale(1.05);
         }
-        .status-dropdown button {
-            padding: 5px 10px;
+        .back-button {
+            background-color: #95a5a6;
+        }
+        .back-button:hover {
+            background-color: #7f8c8d;
+        }
+        .add-button {
+            background-color: #2ecc71;
+        }
+        .add-button:hover {
+            background-color: #27ae60;
+        }
+        .actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
+    <!-- Include your header and navigation here -->
     <header>
-        <div class="logosec">
-            <div class="logo">GradGateway</div>
-            <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210182541/Untitled-design-(30).png" class="icn menuicn" id="menuicn" alt="menu-icon">
-        </div>
-        <div class="searchbar">
-            <input type="text" placeholder="Search">
-            <div class="searchbtn">
-                <img src="https://img.icons8.com/ios/50/FFFFFF/search--v1.png" class="icn srchicn" alt="search-icon">
-            </div>
-        </div>
-        <div class="message" style="gap:20px">
-            <img src="https://img.icons8.com/external-prettycons-solid-prettycons/60/000000/external-notification-essentials-prettycons-solid-prettycons.png" class="icn" alt="">
-            <img src="https://img.icons8.com/arcade/64/000000/administrator-male.png" class="dpicn" alt="dp">
-            <div style="margin-left:-15px;text-decoration:underline;"></div>
-            <div class="logout" style="opacity: 1;">
-                <i class="fa-solid fa-right-from-bracket"></i>
-                <a href="http://localhost:3000/index.html">logout</a>
-            </div>
-        </div>
+        <!-- Your header content -->
     </header>
-
+    
     <div class="main-container">
-        <div class="navcontainer">
-            <nav class="nav">
-                <div class="nav-upper-options">
-                    <div class="nav-option option1">
-                        <a href="/dashboard">
-                            <img src="https://img.icons8.com/external-kmg-design-glyph-kmg-design/32/FFFFFF/external-dashboard-user-interface-kmg-design-glyph-kmg-design.png" class="nav-img" alt="dashboard">
-                            <h3>Dashboard</h3>
-                        </a>
-                    </div>
-                    <div class="nav-option option2">
-                        <a href="/students">
-                            <img src="https://img.icons8.com/external-kmg-design-glyph-kmg-design/32/000000/external-student-avatar-kmg-design-glyph-kmg-design.png" class="nav-img" alt="students">
-                            <h3>Students</h3>
-                        </a>
-                    </div>
-                    <div class="nav-option option3">
-                        <a href="/companies">
-                            <img src="https://img.icons8.com/ios-filled/50/000000/company.png" class="nav-img" alt="companies">
-                            <h3>Companies</h3>
-                        </a>
-                    </div>
-                    <div class="nav-option option4">
-                        <a href="/statistics">
-                            <img src="https://img.icons8.com/external-kmg-design-glyph-kmg-design/32/000000/external-statistics-design-thinking-kmg-design-glyph-kmg-design.png" class="nav-img" alt="statistics">
-                            <h3>Statistics</h3>
-                        </a>
-                    </div>
-                    <div class="nav-option option5">
-                        <a href="/profile">
-                            <img src="https://img.icons8.com/ios-filled/50/000000/user-male-circle.png" class="nav-img" alt="profile">
-                            <h3>Profile</h3>
-                        </a>
-                    </div>
-                    <div class="nav-option option6">
-                        <a href="/settings">
-                            <img src="https://img.icons8.com/ios-filled/50/000000/settings.png" class="nav-img" alt="settings">
-                            <h3>Settings</h3>
-                        </a>
-                    </div>
-                    <div class="nav-option logout">
-                        <a href="index.html">
-                            <img src="https://img.icons8.com/ios-filled/50/000000/exit.png" class="nav-img" alt="logout">
-                            <h3>Logout</h3>
-                        </a>
-                    </div>
-                </div>
-            </nav>
-        </div>
-        <div class="main">
-            <div class="searchbar2">
-                <input type="text" name="" id="" placeholder="Search">
-                <div class="searchbtn">
-                    <img src="https://media.geeksforgeeks.org/wp-content/uploads/20221210180758/Untitled-design-(28).png" class="icn srchicn" alt="search-button">
-                </div>
+        <div class="report-container">
+            <div class="report-header" style="width:100%;">
+                <h2>Students Data</h2>
+                <a href="/students/add">
+                    <button type="button" class="add-button" style="width:150px;margin-left:1250px;">Add Student</button>
+                </a>
+                <button type="button" class="back-button" onclick="history.back()" style="width:100px;">Back</button>
             </div>
-            <div class="box-container">
-                <div class="box box1">
-                    <div class="text">
-                        <h2 class="topic-heading">1.2k</h2>
-                        <h2 class="topic">Registered Students</h2>
-                    </div>
-                    <img src="https://img.icons8.com/ios-filled/50/FFFFFF/edit-user-male.png" alt="Views">
-                </div>
-                <div class="box box2">
-                    <div class="text">
-                        <h2 class="topic-heading">150+</h2>
-                        <h2 class="topic">Visited Companies</h2>
-                    </div>
-                    <img src="https://img.icons8.com/ios-filled/50/000000/company.png" alt="companies">
-                </div>
-                <div class="box box3">
-                    <div class="text">
-                        <h2 class="topic-heading">98%</h2>
-                        <h2 class="topic">Success Rate</h2>
-                    </div>
-                    <img width="60" height="70" src="https://img.icons8.com/external-flatart-icons-solid-flatarticons/70/FFFFFF/external-success-strategy-flatart-icons-solid-flatarticons.png" alt="success-rate">
-                </div>
-                <div class="box box4">
-                    <div class="text">
-                        <h2 class="topic-heading">10 L</h2>
-                        <h2 class="topic">Highest Package</h2>
-                    </div>
-                    <img src="https://img.icons8.com/dotty/90/000000/stack-of-money.png" alt="Highest Package">
-                </div>
-            </div>
-            <div class="report-container">
-                <div class="report-header" style="margin-right: 30px;">
-                    <h2>Placed Students</h2>
-                </div>
-                <table style="margin-top: 30px;">
-                    <thead>
+            
+            <table>
+                <thead>
+                    <tr>
+                        <th>First Name</th>
+                        <th>Last Name</th>
+                        <th>Enrollment ID</th>
+                        <th>College Name</th>
+                        <th>Company Name</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% students.forEach(student => { %>
                         <tr>
-                            <th>Name</th>
-                            <th>Last Name</th>
-                            <th>Enrollment ID</th>
-                            <th>College Name</th>
-                            <th>Company Name</th>
-                            <th>Status</th>
-                            <th width="150px"><center>Actions</center></th>                       
+                            <td><%= student.firstName %></td>
+                            <td><%= student.lastName %></td>
+                            <td><%= student.enrollmentID %></td>
+                            <td><%= student.collegeName %></td>
+                            <td><%= student.companyName %></td>
+                            <td>
+                                <span class="status <%= student.placed ? 'placed' : 'not-placed' %>">
+                                    <%= student.placed ? 'Placed' : 'Not Placed' %>
+                                </span>
+                            </td>
+                            <td class="actions">
+                                <!-- Update Button -->
+                                <a href="/students/update/<%= student._id %>" class="btn btn-update">Update</a>
+                                <!-- Delete Button -->
+                                <form action="/students/delete/<%= student._id %>" method="POST" style="display:inline;">
+                                    <button type="submit" class="btn btn-delete">Delete</button>
+                                </form>
+                            </td>
                         </tr>
-                    </thead>
-                    <tbody>
-                        <% alldata.forEach(item => { %>
-                            <tr>
-                                <td><%= item.Name %></td>
-                                <td><%= item.Lastname %></td>
-                                <td><%= item.enrollmentID %></td>
-                                <td><%= item.collegename %></td>
-                                <td><%= item.comapanyname %></td>
-                                <td>
-                                    <div class="status-dropdown">
-                                        <button class="btn btn-info dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
-                                            <%= item.status %>
-                                        </button>
-                                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <li><a class="dropdown-item" href="/updateStatus/<%= item.enrollmentID %>?status=on-hold">On Hold</a></li>
-                                            <li><a class="dropdown-item" href="/updateStatus/<%= item.enrollmentID %>?status=placed">Placed</a></li>
-                                        </ul>
-                                    </div>
-                                </td>
-                                <td class="actions">
-                                    <!-- No action buttons; dropdown menu only -->
-                                </td>
-                            </tr>
-                        <% }); %>
-                    </tbody>
-                </table>
-            </div>
+                    <% }); %>
+                </tbody>
+            </table>
         </div>
-    </div>
+    </div>  
 
     <script src="../js/dashboard.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFOwKve4wVbO2RPG2G5QbJ7BlV4wN82B0dkkKvI6EEOSXUS2O2D4T5D" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js" integrity="sha384-vpLO2uqoG8N8z5PltDJGOpNB2ytG6e1sGSCp+lbjFCgZGoyG73H7ZG9kLf9a6oh4W" crossorigin="anonymous"></script>
 </body>
 </html>

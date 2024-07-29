@@ -35,6 +35,11 @@
             border-radius: 5px;
             font-size: 16px;
         }
+        .button-container {
+            display: flex;
+            justify-content: space-between;
+            gap: 10px;
+        }
         button {
             padding: 10px;
             border: none;
@@ -44,6 +49,7 @@
             font-size: 16px;
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
+            width: 100%;
         }
         button:hover {
             background-color: #2980b9;
@@ -61,7 +67,7 @@
 
 <div class="container">
     <h1>Update Profile</h1>
-    <form action="/updateStudent/<%= user.enrollmentID %>" method="POST">
+    <form action="/students/update/<%= student._id %>" method="POST" enctype="application/x-www-form-urlencoded">
         <label for="name">First Name:</label>
         <input type="text" id="name" name="name" value="<%= user.Name %>" required>
 
@@ -77,8 +83,10 @@
         <label for="company">Company:</label>
         <input type="text" id="company" name="company" value="<%= user.comapanyname %>" required>
         
-        <button type="submit">Update</button>
-        <button type="button" class="back-button" onclick="history.back()" style="width: 100px;">Back</button></a>
+        <div class="button-container">
+            <button type="submit" class="btn btn-primary">Update</button>
+            <button type="button" class="back-button" onclick="history.back()">Back</button>
+        </div>
     </form>
 </div>
 

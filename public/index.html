@@ -15,7 +15,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Poppins:wght@200&display=swap" rel="stylesheet">        
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Trirong">
    <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
-   <script src="../js/script.js"></script>
+   <script src="../js/charts.js"></script>
 
     <style>
         html{
@@ -28,7 +28,10 @@
             font-family: 'Caveat', cursive;
             font-family: 'Poppins', sans-serif;
             font-weight: 600;
+            font-size: 20px;
         }
+
+
         .chart-container {
             display: flex;
             justify-content: space-around;
@@ -94,38 +97,16 @@
             text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
         }
 
-        .carousel-container {
-            width: 1000px;
-            overflow: hidden;
-            margin: 0 auto;
-        }
-
-        .carousel {
-            display: flex;
-            animation: scroll 25s linear infinite; /* Auto-scrolling animation */
-        }
-
-        .carousel img {
-            width: 200px; /* Adjust the logo size as needed */
-            height: 200px;
-            margin: 0 30px; /* Space between logos */
-        }
-
-        @keyframes scroll {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-100%); /* Move one logo's width to the left */
-            }
-        }
+        
         .activity{
             margin-left:40px;
+            margin-right: 40px;
         }
         li{
             font-family: 'Caveat', cursive;
             font-family: 'Poppins', sans-serif;
             font-weight: 900!important;
+            font-size: 20px;
         }
 
         .testimonial
@@ -143,7 +124,7 @@
 <body>
     <div class="nav">
         <nav class="navbar navbar-inverse" >
-            <div class="container-fluid" style="background-color: black;">
+            <div class="container-fluid" style="background-color: black;margin:10px 0 10px 0px;">
                 <div class="navbar-header" style="margin-left:30vh;">
                     <a class="navbar-brand" href="index.html">GradGateway</a>
                     <img src="../images/icon.png" style="width:40px;height:auto;margin-top:10px;">
@@ -169,8 +150,7 @@
         <img src="../images/background.jpg" alt="Snow" >
         <div class="top-left">
             <h1>Welcome to GradGateway,</h1>
-            <p>Discover endless opportunities with our advanced placement management system. We connect students with top companies, making career dreams a reality. Explore a seamless experience for students, recruiters, and placement officers, ensuring a brighter future for all.</p>
-            
+            <p>Discover endless opportunities with our advanced Placement Management System. At <span style="font-weight: 900 !important;}">GradGateway</span>, we are committed to bridging the gap between talented students and leading companies. Our platform not only simplifies the placement process but also ensures a seamless and efficient experience for students, recruiters, and placement officers. Students can explore a wide range of career opportunities, access resources for skill development, and connect with potential employers. Recruiters can find the perfect candidates with ease through our intelligent matching system, while placement officers can manage the entire process effortlessly. With <span style="font-weight: 900 !important;}">GradGateway</span>, making career dreams a reality has never been easier. Join us and embark on a journey towards a brighter and more successful future.</p>
         </div>
     </div>
     <br>

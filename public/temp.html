@@ -3,78 +3,130 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Placement Resources</title>
+    <title>Major Recruiters Carousel</title>
     <style>
         body {
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
+    background-color: #f7f7f7;
+    color: #333;
 }
 
-header, footer {
-    background-color: #333;
-    color: #fff;
+.carousel-container {
+    width: 100%;
     text-align: center;
-    padding: 10px 0;
+    margin: 20px 0;
 }
 
-main {
+.carousel {
+    width: 80%;
+    margin: 0 auto;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+    border-radius: 10px;
     padding: 20px;
 }
 
-.resource {
-    margin-bottom: 30px;
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
 }
 
-h1, h2 {
-    margin-bottom: 10px;
+.carousel-image {
+    min-width: 150px;
+    margin: 0 10px;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
 }
 
-ul {
-    list-style: none;
-    padding: 0;
+.carousel-image:hover {
+    transform: scale(1.1);
 }
 
-li {
-    margin-bottom: 5px;
+@media (max-width: 768px) {
+    .carousel {
+        width: 95%;
+    }
+
+    .carousel-image {
+        min-width: 120px;
+    }
 }
 
-a {
-    color: #007bff;
-    text-decoration: none;
+@media (max-width: 480px) {
+    .carousel {
+        width: 100%;
+    }
+
+    .carousel-image {
+        min-width: 100px;
+    }
 }
 
-a:hover {
-    text-decoration: underline;
-}
-
-    </style>        
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Placement Resources</h1>
-    </header>
-    <main>
-        <section class="resource">
-            <h2>Technical Interview Preparation</h2>
-            <ul>
-                <li><a href="notes/technical_interview_tips.pdf" download>Technical Interview Tips</a></li>
-                <li><a href="notes/algorithms_cheatsheet.pdf" download>Algorithms Cheat Sheet</a></li>
-                <!-- Add more resources here -->
-            </ul>
-        </section>
-        <section class="resource">
-            <h2>Resume and Cover Letter</h2>
-            <ul>
-                <li><a href="notes/resume_writing_guide.pdf" download>Resume Writing Guide</a></li>
-                <li><a href="notes/cover_letter_samples.docx" download>Cover Letter Samples</a></li>
-                <!-- Add more resources here -->
-            </ul>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Placement Resources</p>
-    </footer>
+    <div class="carousel-container">
+        <h1 style="margin-top:40px;"><center>Major Recruiters</center></h1>
+        <div class="carousel">
+            <div class="carousel-track">
+                <img src="companies/adani.png" alt="Logo 1" class="carousel-image">
+                <img src="companies/byju.png" alt="Logo 2" class="carousel-image">
+                <img src="companies/crest.png" alt="Logo 3" class="carousel-image">
+                <img src="companies/evosys.png" alt="Logo 4" class="carousel-image">
+                <img src="companies/gsfc.png" alt="Logo 5" class="carousel-image">
+                <img src="companies/jaro.png" alt="Logo 6" class="carousel-image">
+                <img src="companies/jeavio.png" alt="Logo 7" class="carousel-image">
+                <img src="companies/meditab.png" alt="Logo 8" class="carousel-image">
+                <img src="companies/mg.png" alt="Logo 9" class="carousel-image">
+                <img src="companies/ops.png" alt="Logo 10" class="carousel-image">
+                <img src="companies/reliance.png" alt="Logo 11" class="carousel-image">
+                <img src="companies/samsung.png" alt="Logo 12" class="carousel-image">
+                <img src="companies/tbea.png" alt="Logo 13" class="carousel-image">
+                <img src="companies/tcs.png" alt="Logo 14" class="carousel-image">
+                <img src="companies/tm.png" alt="Logo 15" class="carousel-image">
+                <img src="companies/tr.png" alt="Logo 16" class="carousel-image">
+                <img src="companies/wipro.png" alt="Logo 17" class="carousel-image">
+            </div>
+        </div>
+    </div>
+<script>
+    let track = document.querySelector('.carousel-track');
+    let isDown = false;
+    let startX;
+    let scrollLeft;
+    
+    track.addEventListener('mousedown', (e) => {
+        isDown = true;
+        track.classList.add('active');
+        startX = e.pageX - track.offsetLeft;
+        scrollLeft = track.scrollLeft;
+    });
+    
+    track.addEventListener('mouseleave', () => {
+        isDown = false;
+        track.classList.remove('active');
+    });
+    
+    track.addEventListener('mouseup', () => {
+        isDown = false;
+        track.classList.remove('active');
+    });
+    
+    track.addEventListener('mousemove', (e) => {
+        if (!isDown) return;
+        e.preventDefault();
+        const x = e.pageX - track.offsetLeft;
+        const walk = (x - startX) * 3; //scroll-fast
+        track.scrollLeft = scrollLeft - walk;
+    });
+    
+
+</script>
 </body>
 </html>
 
