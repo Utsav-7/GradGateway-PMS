@@ -14,27 +14,24 @@ const app = express();
 const port = process.env.PORT || 3000;
 const Student = require('./models/Student.js'); // Adjust the path as needed
 
-
-// ---------------------------middlewares -------------------
-app.use(methodOverride('_method'));
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
-
-
-const placedStudentRoutes = require('./routes/placedStudentRoutes'); // Adjust the path as necessary
-const adminStudentRoutes = require('./routes/adminStudentRoutes'); // Adjust the path as necessary
-
-app.use('/', placedStudentRoutes);
-app.use('/', adminStudentRoutes);
-
-// --------------------------- mongo db connection that not working correctly
-// async function main() {
-//   await mongoose.connect('mongodb+srv://utsav0712:utsav0712@cluster-1.lh3xn9t.mongodb.net/');
-// }
-// main().then(console.log("connection succefully")).catch(err => console.log(err));
-
-
 // ---------------------- Mongo DB (Atlas) Connection -------------------------------------
+
+
+const uri ="mongodb+srv://utsav0712:utsav0712@cluster-1.lh3xn9t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-1";
+
+if (!uri) {
+  console.error('MongoDB URI is not defined. Please check your .env file.');
+  process.exit(1); // Exit the process with an error code
+}
+
+mongoose.connect(uri, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true
+}).then(() => {
+  console.log("MongoDB connection successful");
+}).catch(err => {
+  console.error("MongoDB connection error:", err);
+});
 
 // const { MongoClient, ServerApiVersion } = require('mongodb');
 // const uri = "mongodb+srv://utsav0712:utsav0712@cluster-1.lh3xn9t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-1";
@@ -64,22 +61,24 @@ app.use('/', adminStudentRoutes);
 
 
 
+// ---------------------------middlewares -------------------
+app.use(methodOverride('_method'));
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
 
-const uri ="mongodb+srv://utsav0712:utsav0712@cluster-1.lh3xn9t.mongodb.net/?retryWrites=true&w=majority&appName=Cluster-1";
 
-if (!uri) {
-  console.error('MongoDB URI is not defined. Please check your .env file.');
-  process.exit(1); // Exit the process with an error code
-}
+const placedStudentRoutes = require('./routes/placedStudentRoutes'); // Adjust the path as necessary
+const adminStudentRoutes = require('./routes/adminStudentRoutes'); // Adjust the path as necessary
 
-mongoose.connect(uri, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-}).then(() => {
-  console.log("MongoDB connection successful");
-}).catch(err => {
-  console.error("MongoDB connection error:", err);
-});
+app.use('/', placedStudentRoutes);
+app.use('/', adminStudentRoutes);
+
+// --------------------------- mongo db connection that not working correctly
+// async function main() {
+//   await mongoose.connect('mongodb+srv://utsav0712:utsav0712@cluster-1.lh3xn9t.mongodb.net/');
+// }
+// main().then(console.log("connection succefully")).catch(err => console.log(err));
+
 
 
 // -=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-==-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-

@@ -67,7 +67,7 @@
 
 <div class="container">
     <h1>Update Profile</h1>
-    <form action="/students/update/<%= student._id %>" method="POST">
+    <form action="/updateStudent/<%=user.enrollmentID %>" method="POST">
         <label for="name">First Name:</label>
         <input type="text" id="name" name="name" value="<%= user.Name %>" required>
 
@@ -77,12 +77,12 @@
         <label for="college">College Name:</label>
         <input type="text" id="college" name="college" value="<%= user.collegename %>" required>
 
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" value="<%= user.email %>" required>
+        <label for="enrollmentID">enrollment ID:</label>
+        <input type="text" id="enrollmentID" name="enrollmentID" value="<%= user.enrollmentID %>" required>
         
         <label for="company">Company:</label>
         <input type="text" id="company" name="company" value="<%= user.comapanyname %>" required>
-        
+    
         <div class="button-container">
             <button type="submit" class="btn btn-primary">Update</button>
             <button type="button" class="back-button" onclick="history.back()">Back</button>

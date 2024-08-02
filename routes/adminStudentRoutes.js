@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const placement=require("../models/studentjobform.js");
+const placement = require('../models/studentjobform.js');
 
 // Route to render the update page with current user details
 router.get('/updateStudent/:id', async (req, res) => {
@@ -22,7 +22,7 @@ router.get('/updateStudent/:id', async (req, res) => {
 router.post('/updateStudent/:id', async (req, res) => {
     try {
         const { id } = req.params;
-        const { name, lastname, college, email, company } = req.body;
+        const { name, lastname, college, company } = req.body;
 
         console.log('Updating user with ID:', id);
 
@@ -32,7 +32,6 @@ router.post('/updateStudent/:id', async (req, res) => {
                 Name: name,
                 Lastname: lastname,
                 collegename: college,
-                email: email,
                 comapanyname: company  // Update the company name
             },
             { new: true } // Return the updated document
@@ -70,3 +69,4 @@ router.delete('/delete/:id', async (req, res) => {
 });
 
 module.exports = router;
+
