@@ -72,8 +72,6 @@ router.post('/students/update/:id', async (req, res) => {
 });
 
 
-
-
 router.post('/students/delete/:id', async (req, res) => {
     try {
         await Student.findByIdAndDelete(req.params.id);
@@ -85,4 +83,3 @@ router.post('/students/delete/:id', async (req, res) => {
 });
 
 module.exports = router;
-

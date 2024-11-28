@@ -16,5 +16,4 @@ router.get('/:enrollmentID', async (req, res) => {
     }
 });
 
-
 module.exports = router;
